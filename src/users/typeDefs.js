@@ -1,4 +1,4 @@
-export const userTypeDef = `
+export const usersTypeDef = `
 input UserRegistration {
     name: String!
     email: String!
@@ -28,11 +28,11 @@ type Me {
 }
 `;
 
-export const userQueries = `
+export const usersQueries = `
     me: Me!    
 `;
 
-export const userMutations = `
+export const usersMutations = `
     registerUser(user: UserRegistration): Token
     loginUser(login: Login): ReplyUsers
 `;

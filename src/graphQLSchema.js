@@ -9,26 +9,25 @@ import {
 	coursesQueries,
 	coursesTypeDef
 } from './courses/typeDefs';
-
+import coursesResolvers from './courses/resolvers';
 import {
-	userMutations,
-	userQueries,
-	userTypeDef
+	usersMutations,
+	usersQueries,
+	usersTypeDef
 } from './users/typeDefs';
 import usersResolvers from './users/resolvers';
-import coursesResolvers from './courses/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		coursesTypeDef, userTypeDef
+		coursesTypeDef, usersTypeDef
 	],
 	[
-		coursesQueries,userQueries
+		coursesQueries,usersQueries
 	],
 	[
-		coursesMutations, userMutations
+		coursesMutations, usersMutations
 	]
 );
 
