@@ -10,19 +10,25 @@ import {
 	coursesTypeDef
 } from './courses/typeDefs';
 
+import {
+	userMutations,
+	userQueries,
+	userTypeDef
+} from './users/typeDefs';
+import usersResolvers from './users/resolvers';
 import coursesResolvers from './courses/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		coursesTypeDef
+		coursesTypeDef, userTypeDef
 	],
 	[
-		coursesQueries
+		coursesQueries,userQueries
 	],
 	[
-		coursesMutations
+		coursesMutations, userMutations
 	]
 );
 
@@ -31,6 +37,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		coursesResolvers
+		coursesResolvers,
+		usersResolvers
 	)
 });
