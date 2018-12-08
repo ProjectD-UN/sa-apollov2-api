@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  academy-api:
+    build: .
+    environment:
+      PORT: '5000'
+      SHOW_URLS: 'true'
+      COURSES_URL: '192.168.99.101'
+      COURSES_PORT: '3000'
+      COURSES_ENTRY: 'courses-ms/resources/courses'
+    ports:
+      - '5000:5000'
