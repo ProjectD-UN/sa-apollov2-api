@@ -9,6 +9,6 @@ services:
       COURSES_PORT: '3000'
       COURSES_ENTRY: 'courses-ms/resources/courses'
       USERS_PORT: '3003'
-      USERS_ENTRY: 'api/'
+      USERS_ENTRY: 'api/auth'
     ports:
       - '5000:5000'
