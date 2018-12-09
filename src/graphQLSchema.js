@@ -10,6 +10,7 @@ import {
 	coursesTypeDef
 } from './courses/typeDefs';
 import coursesResolvers from './courses/resolvers';
+
 import {
 	usersMutations,
 	usersQueries,
@@ -17,17 +18,30 @@ import {
 } from './users/typeDefs';
 import usersResolvers from './users/resolvers';
 
+import {
+	newsletterMutations,
+	newsletterQueries,
+	newsletterTypeDef
+} from './newsletters/typeDefs';
+import newslettersResolvers from './newsletters/resolvers';
+
+import {
+	centersMutations,
+	centersQueries,
+	centersTypeDef
+} from './centers/typeDefs';
+import centersResolvers from './centers/resolvers';
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		coursesTypeDef, usersTypeDef
+		coursesTypeDef, usersTypeDef, newsletterTypeDef, centersTypeDef
 	],
 	[
-		coursesQueries,usersQueries
+		coursesQueries, usersQueries, newsletterQueries, centersQueries
 	],
 	[
-		coursesMutations, usersMutations
+		coursesMutations, usersMutations, newsletterMutations, centersMutations
 	]
 );
 
@@ -37,6 +51,8 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		coursesResolvers,
-		usersResolvers
+		usersResolvers,
+		newslettersResolvers,
+		centersResolvers
 	)
 });
