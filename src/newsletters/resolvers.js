@@ -14,7 +14,9 @@ const resolvers = {
 		saveUser: (_, {user}) =>
 			generalRequest(`${URL}users`, 'POST', user),
 		saveUserTopic: (_, {userTopic}) =>
-			generalRequest(`${URL}user_topics`, 'POST', userTopic)
+			generalRequest(`${URL}user_topics`, 'POST', userTopic),
+		saveNewsletter: (_, {newsletter}) =>
+			generalRequest(`${URL}newsletters`, 'POST', newsletter)
 	}
 
 };

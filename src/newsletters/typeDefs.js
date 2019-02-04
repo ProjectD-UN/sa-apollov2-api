@@ -7,6 +7,12 @@ input UserTopic{
     user_id: Int!
     topic_id: Int!
 }
+input InNewsletter {
+    title: String!
+    description: String!
+    url_to_image: String!
+    topics: [Int!]
+}
 type UserCreated {
     id: Int
     name: String!
@@ -39,4 +45,5 @@ export const newsletterQueries = `
 export const newsletterMutations = `
     saveUser(user: User!): UserCreated!
     saveUserTopic(userTopic: UserTopic!): UserTopicCreated!
+    saveNewsletter(newsletter: InNewsletter!): Newsletter!
 `;
